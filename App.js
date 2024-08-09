@@ -15,6 +15,14 @@ import FichasListScreen from './src/pages/FichasListScreen'
 import EditPage from './src/pages/EditFicha'
 import RevisarFicha from './src/pages/RevisarFicha'; 
 import MeasuresPage from './src/pages/MeasuresPage' 
+import InitialDataPage from './src/pages/InitialDataPage' 
+import SecondaryDataPage from './src/pages/SecondaryDataPage' 
+import EditFichaPage from './src/pages/EditFichaPage' 
+
+
+
+SecondaryDataPage
+
 
 
 
@@ -30,8 +38,9 @@ function MainTabs() {
         tabBarHideOnKeyboard: true,
         tabBarActiveTintColor: '#B21601',
         tabBarStyle: {
-          backgroundColor: '#3F4B5C',
+          backgroundColor: '#ffffff',
           borderTopWidth: 0,
+          height:55,
         },
       }}
     >
@@ -49,12 +58,12 @@ function MainTabs() {
         name="AddFicha"
         component={AddFichaScreen}
         options={{
-          tabBarLabel: '',
+          tabBarLabel: 'Nova ficha',
           tabBarIcon: ({ size, color }) => (
             <Feather
               name="plus-square"
               size={28}
-              color={'#B21601'}
+              color={'#3F4B5C'}
               backgroundColor={''}
             />
           ),
@@ -97,7 +106,9 @@ export default function App() {
           <Stack.Screen
             name="AddFichaScreen"
             component={AddFichaScreen}
-            options={{ title: 'Formulário de Fichas' }}
+            options={
+              ({ title: 'Formulário de Fichas' }, { headerShown: false })
+            }
           />
           <Stack.Screen
             name="FichasListScreen"
@@ -114,7 +125,26 @@ export default function App() {
             component={RevisarFicha}
             options={{ title: 'Revisar Ficha' }}
           />
-          <Stack.Screen name="MeasuresPage" component={MeasuresPage} />
+          <Stack.Screen
+            name="MeasuresPage"
+            component={MeasuresPage}
+            options={{ title: 'Medidas' }}
+          />
+          <Stack.Screen
+            name="InitialDataPage"
+            component={InitialDataPage}
+            options={{ title: 'Dados iniciais' }}
+          />
+          <Stack.Screen
+            name="SecondaryDataPage"
+            component={SecondaryDataPage}
+            options={{ title: 'Dados secundário' }}
+          />
+          <Stack.Screen
+            name="EditFichaPage"
+            component={EditFichaPage}
+            options={{ title: 'Editar' }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </FichaProvider>
